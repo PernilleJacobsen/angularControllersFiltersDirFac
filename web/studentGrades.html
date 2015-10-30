@@ -1,20 +1,14 @@
 <table class="table">
     <thead>
-      <th>Student ID</th>
-      <th>Name</th>
-      <th>Basic Programming</th>
-      <th>Advanced Programming</th>
-      <th>DataBase Intro</th>
-      <th>Gradepoint average</th>
+          <th></th>
+          <th ng-repeat="c in ctrl.courses">{{c.courseName}}</th>
+          <th>Average</th>
     </thead>
     <tbody>
-      <tr ng-repeat="student in ctrl.studentsInfo.students">
-        <td>{{student.studentId}}</td>
-        <td>{{student.name}}</td>
-        <td>{{student.grades[0].grade}}</td>
-        <td>{{student.grades[1].grade}}</td>
-        <td>{{student.grades[2].grade}}</td>
-        <td>{{student.grades | AverageFilter}} </td>
-      </tr>
+        <tr ng-repeat="s in ctrl.students">
+            <td>{{s.name}}</td>
+            <td ng-repeat="g in s.grades">{{g.grade}}</td>
+            <td>{{ s.grades | calcAvrg }}</td>
+        </tr>
     </tbody>
 </table>
